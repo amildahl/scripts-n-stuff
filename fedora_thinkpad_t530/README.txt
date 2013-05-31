@@ -6,3 +6,5 @@ Currently running Fedora 18 with proprietary nVidia drivers installed.
 
 Kernel arguments as follows:
 linux   /vmlinuz-3.9.4-200.fc18.x86_64 root=/dev/mapper/vg-lv_root ro rd.md=0 rd.dm=0  KEYTABLE=us SYSFONT=True rd.lvm.lv=vg/lv_root rd.luks=0 rd.lvm.lv=vg/lv_swap LANG=en_US.UTF-8 rhgb nouveau.blacklist=1 quiet nouveau.modeset=0 rd.driver.blacklist=nouveau video=vesa:off vga=normal
+
+Also to note, you'll need to go to the Display option and set the graphics card to "Discrete" [nVidia] (as opposed to Integrated [Intel] or Optimus [Both] -- I've tried bumblebee on Fedora, but wasn't prepared to tinker long enough to get it to work to my satisfaction) and OS detection to "Disabled"
