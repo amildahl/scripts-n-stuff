@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# The package xorg-x11-server-Xorg provides the file in question
+#   However, the installation script of the nVidia proprietary driver
+#   removes this file, replacing it with a symlink to its own
+# When updating the xorg server, this breaks and applications crash
+if [[ ! -h /usr/lib64/xorg/modules/extensions/libglx.so ]] 
+then 
+  mv /usr/lib64/xorg/modules/extensions/libglx.so /usr/lib64/xorg/modules/extensions/libglx.so.backup.`date`
+  ln --symbolic /usr/lib64/nvidia/xorg/libglx.so /usr/lib64/xorg/modules/extensions/libglx.so
+fi
